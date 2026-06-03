@@ -1,0 +1,656 @@
+.timesheet-page {
+  width: 297mm;
+  min-height: 210mm;
+  max-width: 100%;
+  margin: 10px auto;
+  background: #ffffff;
+  border: 1px solid #1b1b1b;
+  padding: 8mm 6mm 6mm;
+  box-sizing: border-box;
+  color: #111;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.download-pdf-btn {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  border: 1px solid #222;
+  background: #ffffff;
+  color: #111;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.download-pdf-btn:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.header-section {
+  display: block;
+  align-items: end;
+  min-height: 43mm;
+}
+
+.company-block {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  align-content: start;
+}
+
+.logo-placeholder {
+  width: 82mm;
+  height: 22mm;
+  padding: 0;
+  margin-bottom: 0;
+  overflow: hidden;
+  background-image: url('/accord-logo.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: left top;
+}
+
+.company-details h1 {
+  margin: 0 0 0.8mm;
+  font-size: 4.1mm;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.company-details p {
+  margin: 0 0 0.55mm;
+  font-size: 3.45mm;
+  line-height: 1.18;
+  font-weight: 700;
+}
+
+.title-block {
+  width: 100%;
+  text-align: center;
+  margin-top: 5mm;
+}
+
+.title-block h2 {
+  margin: 0;
+  font-size: 5.8mm;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.employee-info {
+  margin-top: 9mm;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20mm;
+}
+
+.employee-column {
+  padding: 0;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 46mm 1fr;
+  align-items: end;
+  margin-bottom: 1.9mm;
+  gap: 3mm;
+}
+
+.field-label {
+  font-size: 3.6mm;
+  font-weight: 600;
+}
+
+.field-value {
+  border-bottom: 1px solid #111;
+  min-height: 5.2mm;
+  font-size: 3.6mm;
+  font-weight: 600;
+  padding: 0 1.3mm 0.4mm;
+}
+
+.field-input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font: inherit;
+  color: #111;
+  padding: 0;
+  margin: 0;
+}
+
+.field-input:focus {
+  outline: none;
+}
+
+.date-input {
+  font-size: 3.2mm;
+}
+
+.date-input::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+
+.month-inline-row {
+  display: grid;
+  grid-template-columns: 10mm 12mm minmax(26mm, 1fr) 8mm minmax(26mm, 1fr);
+  align-items: end;
+  gap: 2.5mm;
+  margin-top: 0.6mm;
+  margin-bottom: 1.8mm;
+}
+
+.month-inline-value {
+  min-width: 26mm;
+}
+
+.to-label {
+  text-align: right;
+}
+
+.timesheet-table-section {
+  margin-top: 7mm;
+}
+
+.timesheet-table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.timesheet-table th,
+.timesheet-table td {
+  border: 1px solid #222;
+  height: 11mm;
+  text-align: center;
+  padding: 0;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.timesheet-table th {
+  background: #f1f1f1;
+  font-weight: 700;
+}
+
+.timesheet-table .row-label {
+  width: 50mm;
+  text-align: left;
+  padding-left: 2px;
+  font-size: 8px;
+  white-space: nowrap;
+}
+
+.time-input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  text-align: center;
+  font-size: 8px;
+  font-weight: 700;
+  background: transparent;
+}
+
+.time-input:focus {
+  outline: 1px solid #3f7bf9;
+  outline-offset: -1px;
+}
+
+.working-day-picker {
+  width: 100%;
+  height: 100%;
+  border: none;
+  text-align: center;
+  font-size: 8px;
+  font-weight: 700;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.working-day-picker:focus {
+  outline: 1px solid #3f7bf9;
+  outline-offset: -1px;
+}
+
+.update-note {
+  margin: 1px 2px 0;
+  color: #e53935;
+  font-size: 8px;
+  font-style: italic;
+  text-decoration: underline;
+}
+
+.lower-area {
+  margin-top: 0;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 8px;
+  align-items: start;
+}
+
+.left-lower,
+.right-lower {
+  min-width: 0;
+}
+
+.leave-panel {
+  border: 1px solid #222;
+}
+
+.leave-details-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.leave-details-table th,
+.leave-details-table td {
+  border: 1px solid #222;
+  text-align: center;
+  font-size: 8px;
+  padding: 0 2px;
+  height: 6mm;
+  font-weight: 700;
+}
+
+.leave-title {
+  background: #c8c19f;
+  text-align: left !important;
+}
+
+.leave-note-head {
+  background: #c8c19f;
+  text-align: left !important;
+}
+
+.summary-label {
+  font-weight: 700;
+  text-align: center;
+}
+
+.summary-value {
+  background: #fff;
+}
+
+.leave-input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font: inherit;
+  font-weight: 700;
+  color: #111;
+  text-align: left;
+  padding: 0;
+  margin: 0;
+}
+
+.leave-input:focus {
+  outline: none;
+}
+
+.leave-center {
+  text-align: center;
+}
+
+.carry-input {
+  text-align: left;
+  font-size: 7px;
+}
+
+.blue-cell {
+  background: #8db4e2;
+}
+
+.green-cell {
+  background: #91d34f;
+}
+
+.beige-cell {
+  background: #efe3bf;
+}
+
+.unpaid-cell {
+  background: #ecdfcf;
+  font-size: 12px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.carry-row {
+  background: #ffc000;
+  text-align: left !important;
+  font-weight: 700;
+}
+
+.detail-header {
+  background: #fff;
+}
+
+.detail-no {
+  width: 8%;
+}
+
+.detail-date {
+  width: 17%;
+}
+
+.leave-details-table .summary-value .leave-input,
+.leave-details-table .detail-no .leave-input,
+.leave-details-table .detail-date .leave-input {
+  min-height: 6mm;
+}
+
+.certification-section {
+  margin-top: 22mm;
+  min-height: 72mm;
+}
+
+.certification-section p {
+  margin: 0 0 12mm;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.signature-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.6fr;
+  gap: 6mm;
+  align-items: start;
+}
+
+.signature-stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.signature-date-stack {
+  padding-top: 12mm;
+}
+
+.signature-preview-area {
+  min-height: 11mm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1mm;
+  position: relative;
+  cursor: pointer;
+}
+
+.signature-preview-image {
+  display: block;
+  max-width: 100%;
+  max-height: 11mm;
+  object-fit: contain;
+}
+
+.signature-preview-placeholder {
+  font-size: 7px;
+  font-style: italic;
+  color: #777;
+  text-align: center;
+}
+
+.signature-upload-input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.signature-field {
+  display: block;
+}
+
+.signature-line {
+  display: block;
+  border-bottom: 1px solid #222;
+  min-height: 10mm;
+}
+
+.signature-caption {
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3mm;
+  font-size: 10px;
+  font-style: italic;
+  font-weight: 800;
+}
+
+.signature-date-input {
+  border: none;
+  background: transparent;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 800;
+  width: 32mm;
+  min-width: 32mm;
+  flex-shrink: 0;
+  padding: 0;
+  color: #111;
+}
+
+.signature-date-input:focus {
+  outline: none;
+}
+
+.second-row {
+  margin-top: 8mm;
+}
+
+.legend-section {
+  margin-top: 3.5mm;
+}
+
+.legend-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 0;
+}
+
+.legend-item {
+  border: 1px solid #222;
+  min-height: 7mm;
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.weekend-pair {
+  border: 1px solid #222;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.weekend-pair .legend-item {
+  border: none;
+  border-right: 1px solid #222;
+  justify-content: center;
+}
+
+.weekend-pair .legend-item:last-child {
+  border-right: none;
+}
+
+.code-ph {
+  background: #f5ef00;
+}
+
+.code-al {
+  background: #3d79c9;
+  color: #fff;
+}
+
+.code-slmc {
+  background: #8ac548;
+}
+
+.code-weekend {
+  background: #cfc5e5;
+}
+
+.code-unpaid {
+  background: #f1e3d8;
+}
+
+.code-comp {
+  background: #c7c19f;
+}
+
+@media (max-width: 1280px) {
+  .timesheet-page {
+    width: 100%;
+    min-height: unset;
+    margin: 0;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 980px) {
+  .header-section {
+    min-height: auto;
+    display: block;
+  }
+
+  .company-block {
+    grid-template-columns: 1fr;
+  }
+
+  .logo-placeholder {
+    width: 100%;
+  }
+
+  .company-details h1 {
+    font-size: 18px;
+  }
+
+  .company-details p {
+    font-size: 13px;
+  }
+
+  .title-block h2 {
+    font-size: 24px;
+  }
+
+  .title-block {
+    margin-top: 4mm;
+  }
+
+  .employee-info {
+    gap: 8mm;
+  }
+
+  .month-inline-row {
+    grid-template-columns: 42px 38px minmax(96px, 1fr) 24px minmax(96px, 1fr);
+    gap: 4px;
+  }
+
+  .lower-area {
+    grid-template-columns: 1fr;
+  }
+
+  .certification-section {
+    margin-top: 6mm;
+    min-height: auto;
+  }
+
+  .second-row {
+    margin-top: 6mm;
+  }
+
+  .legend-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .signature-date-stack {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .header-section,
+  .employee-info,
+  .company-block {
+    grid-template-columns: 1fr;
+  }
+
+  .company-block {
+    border-right: none;
+    border-bottom: 1px solid #1f1f1f;
+  }
+
+  .employee-column + .employee-column {
+    border-left: none;
+    border-top: 1px solid #1f1f1f;
+  }
+
+  .field-row {
+    grid-template-columns: 1fr;
+    gap: 1px;
+  }
+
+  .month-inline-row {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  .to-label {
+    text-align: left;
+  }
+}
+
+@page {
+  size: A4 landscape;
+  margin: 6mm;
+}
+
+@media print {
+  .download-pdf-btn {
+    display: none;
+  }
+
+  html,
+  body {
+    margin: 0;
+    width: auto;
+    height: auto;
+    background: #fff;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  #root {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .timesheet-page {
+    width: 297mm;
+    max-width: none;
+    min-height: 210mm;
+    margin: 0;
+    border: 1px solid #222;
+    padding: 6mm 5mm 5mm;
+    box-shadow: none;
+    break-inside: avoid;
+  }
+
+  .time-input {
+    color: #111;
+  }
+
+  .working-day-picker {
+    color: #111;
+  }
+}
