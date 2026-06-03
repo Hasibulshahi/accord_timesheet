@@ -88,16 +88,7 @@ function TimesheetTable({ days }: TimesheetTableProps) {
           </tr>
           <tr>
             <th className="row-label">(Day 1 or 0.5 only)</th>
-            {days.map((item) => (
-              <td key={item.day}>
-                <input
-                  aria-label={`Day ${item.day} value`}
-                  defaultValue={item.value ?? ''}
-                  className="time-input"
-                  maxLength={3}
-                />
-              </td>
-            ))}
+            {days.length > 0 ? <td colSpan={days.length} /> : null}
           </tr>
         </tbody>
       </table>

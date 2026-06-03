@@ -23,6 +23,14 @@ function toDate(value: string) {
   return Number.isNaN(parsed.getTime()) ? null : parsed
 }
 
+function toSafeFilenamePart(value: string) {
+  return value
+    .trim()
+    .replace(/[^a-zA-Z0-9\s-_]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+}
+
 function generateTimesheetDays(fromDate: string, toDateValue: string): TimesheetDay[] {
   const from = toDate(fromDate)
   const to = toDate(toDateValue)
@@ -163,9 +171,11 @@ function App() {
       const imageHeight = canvas.height * ratio
       const x = (pageWidth - imageWidth) / 2
       const y = (pageHeight - imageHeight) / 2
+      const safeEmployeeName = toSafeFilenamePart(employeeInfo.employeeName)
+      const fileName = `${safeEmployeeName || 'employee'}-timesheet.pdf`
 
       pdf.addImage(canvas.toDataURL('image/png'), 'PNG', x, y, imageWidth, imageHeight)
-      pdf.save('employee-timesheet.pdf')
+      pdf.save(fileName)
     } finally {
       setIsExporting(false)
     }
