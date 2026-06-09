@@ -94,8 +94,11 @@ function App() {
     setIsExporting(true)
 
     try {
+      const exportScale = Math.min(window.devicePixelRatio || 1, 1.5)
+      const jpegQuality = 0.72
+
       const canvas = await html2canvas(timesheetElement, {
-        scale: 2,
+        scale: exportScale,
         useCORS: true,
         backgroundColor: '#ffffff',
         onclone: (clonedDocument) => {
@@ -162,6 +165,7 @@ function App() {
         orientation: 'landscape',
         unit: 'mm',
         format: 'a4',
+        compress: true,
       })
 
       const pageWidth = pdf.internal.pageSize.getWidth()
@@ -173,8 +177,9 @@ function App() {
       const y = (pageHeight - imageHeight) / 2
       const safeEmployeeName = toSafeFilenamePart(employeeInfo.employeeName)
       const fileName = `${safeEmployeeName || 'employee'}-timesheet.pdf`
+      const imageData = canvas.toDataURL('image/jpeg', jpegQuality)
 
-      pdf.addImage(canvas.toDataURL('image/png'), 'PNG', x, y, imageWidth, imageHeight)
+      pdf.addImage(imageData, 'JPEG', x, y, imageWidth, imageHeight, undefined, 'FAST')
       pdf.save(fileName)
     } finally {
       setIsExporting(false)
