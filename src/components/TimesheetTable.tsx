@@ -17,7 +17,7 @@ const codeClassMap: Record<string, string> = {
   C: 'code-comp',
 }
 
-const leaveCycle = ['', '0.5', 'SL', 'AL', 'PH'] as const
+const leaveCycle = ['', '0.5', 'SL', 'AL', 'PH', 'X'] as const
 
 function TimesheetTable({ days }: TimesheetTableProps) {
   const [selectedLeaveCodes, setSelectedLeaveCodes] = useState<Record<number, string>>({})
